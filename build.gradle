@@ -15,3 +15,9 @@ gatling {
 repositories {
   mavenCentral()
 }
+
+dependencies {
+
+    gatling 'com.networknt:json-schema-validator:1.4.3'
+
+}

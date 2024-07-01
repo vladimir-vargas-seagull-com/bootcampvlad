@@ -1,7 +1,6 @@
 package pokemonapi;
 
 
-
 import java.time.Duration;
 import java.util.*;
 
@@ -32,8 +31,19 @@ public class PokemonApiTest extends Simulation {
             .exec(http("Get Pikachu")
                     .get("/#{pokemonName}")
                     .check(jmesPath("base_experience").isEL("#{baseExperience}"))
-                    .check(status().is(200)))
-            ;
+                    .check(jmesPath("abilities[0].ability.name").find().saveAs("ability"))
+                    .check(bodyString().saveAs("BODY"))
+                    .check(status().is(200))
+
+
+            )
+
+            .exec(
+                    session -> {
+                        System.out.println("Pokemon: " + session.getString("ability"));
+                        return session;
+                    }
+            );
     // Case 2 adicionar assert en el body
     // Set up the scenario
 
@@ -44,9 +54,6 @@ public class PokemonApiTest extends Simulation {
                 )
         ).protocols(httpProtocol);
     }
-
-
-
 
 
 }
