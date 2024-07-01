@@ -50,7 +50,11 @@ public class PokemonApiTest extends Simulation {
     {
         setUp(
                 scn.injectOpen(
-                        rampUsers(10).during(10)
+                        atOnceUsers(10),
+                        nothingFor(Duration.ofSeconds(5)),
+                        rampUsers(10).during(Duration.ofSeconds(10)),
+                        constantUsersPerSec(20).during(Duration.ofSeconds(10)
+                        )
                 )
         ).protocols(httpProtocol);
     }
