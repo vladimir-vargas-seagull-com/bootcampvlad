@@ -31,7 +31,7 @@ public class PokemonApiTest extends Simulation {
             .exec(http("Get Pikachu")
                     .get("/#{pokemonName}")
                     .check(jmesPath("base_experience").isEL("#{baseExperience}"))
-                    .check(jmesPath("abilities[0].ability.name").find().saveAs("ability"))
+                    .check(jmesPath("abilities[0].ability.url").find().saveAs("ability"))
                     .check(bodyString().saveAs("BODY"))
                     .check(status().is(200))
 
