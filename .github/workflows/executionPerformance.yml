@@ -12,7 +12,7 @@ on:
         type: string
         description: 'Quantity of users'
         required: true
-        default: '11'
+        default: '10'
 
 jobs:
   execpokemonapi:
