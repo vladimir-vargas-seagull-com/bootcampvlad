@@ -42,8 +42,8 @@ jobs:
           publish_dir: './build/reports/gatling'
           keep_files: true
           user_name: vladimir-vargas-tierconnect-com
-          user_email: vladimir-vargas-tierconnect-com
-          publish_branch: main
+          user_email: vladimir.vargas@mojix.com
+          publish_branch: test
 
 
 
